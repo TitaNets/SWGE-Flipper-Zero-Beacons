@@ -98,18 +98,18 @@ notify.blink("blue", "long");
 print("  - location..."); 
 let locationPrefix = [0x0A, 0x04];
 let locationBeacons = [
-    { id: 0x00, name: "Marketplace 1", payload: createPayload(locationPrefix, [0x01, 0x02, 0xA6, 0x01]) },
-    { id: 0x01, name: "Marketplace 2", payload: createPayload(locationPrefix, [0x01, 0x0C, 0xA6, 0x01]) },
+	{ id: 0x00, name: "Marketplace 1", payload: createPayload(locationPrefix, [0x01, 0x02, 0xA6, 0x01]) },
+	{ id: 0x01, name: "Marketplace 2", payload: createPayload(locationPrefix, [0x01, 0x0C, 0xA6, 0x01]) },
 	{ id: 0x02, name: "Marketplace (WDW)", payload: createPayload(locationPrefix, [0x06, 0x18, 0xBA, 0x01]) },    
 	{ id: 0x03, name: "Droid Depot (Behind)", payload: createPayload(locationPrefix, [0x02, 0x02, 0xA6, 0x01]) },
-    { id: 0x04, name: "Droid Depot (DL)", payload: createPayload(locationPrefix, [0x03, 0x18, 0xBA, 0x01]) },    
+	{ id: 0x04, name: "Droid Depot (DL)", payload: createPayload(locationPrefix, [0x03, 0x18, 0xBA, 0x01]) },    
 	{ id: 0x05, name: "Resistance", payload: createPayload(locationPrefix, [0x03, 0x02, 0xA6, 0x01]) },
 	{ id: 0x06, name: "First Order 1", payload: createPayload(locationPrefix, [0x07, 0x02, 0xA6, 0x01]) },
 	{ id: 0x07, name: "First Order 2", payload: createPayload(locationPrefix, [0x07, 0x0C, 0xA6, 0x01]) },    
 	{ id: 0x08, name: "Dok-Ondar's", payload: createPayload(locationPrefix, [0x06, 0x0C, 0xA6, 0x01]) },
-    { id: 0x09, name: "Dok-Ondar's (WDW)", payload: createPayload(locationPrefix, [0x06, 0x02, 0xA6, 0x01]) },	
+	{ id: 0x09, name: "Dok-Ondar's (WDW)", payload: createPayload(locationPrefix, [0x06, 0x02, 0xA6, 0x01]) },	
 	{ id: 0x0A, name: "Oga's Detector", payload: createPayload(locationPrefix, [0x05, 0x02, 0xA6, 0x01]) },	
-    { id: 0x0B, name: "Oga's Entrance", payload: createPayload(locationPrefix, [0x05, 0x0C, 0xA6, 0x01]) },
+	{ id: 0x0B, name: "Oga's Entrance", payload: createPayload(locationPrefix, [0x05, 0x0C, 0xA6, 0x01]) },
 	{ id: 0x0C, name: "Somewhere", payload: createPayload(locationPrefix, [0x04, 0x02, 0xA6, 0x01]) }	
 ];
 
