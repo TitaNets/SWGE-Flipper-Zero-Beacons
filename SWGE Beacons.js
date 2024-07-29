@@ -15,7 +15,6 @@ let dialog = require("dialog");
 let notify = require("notification");
 
 let commonPrefix = [9, 0xFF, 0x83, 0x01];
-notify.blink("yellow", "long");
 print("Initializing beacons...");
 
 // Show a loading message while creating variables
@@ -36,6 +35,7 @@ function clearScreen() {
 // Function to create the full payload array from a prefix and suffix
 function createPayload(prefix, suffix) {
 	let ix = 0;
+	notify.blink("blue", "short");
 	
     // Create a Uint8Array with the total length of commonPrefix and suffix
     let combinedArray = Uint8Array(commonPrefix.length + prefix.length + suffix.length);
@@ -80,7 +80,6 @@ function stopBroadcast() {
     if (blebeacon.isActive()) {
         blebeacon.stop();
 		notify.error();
-		//notify.blink("red", "short");
     }
 }
 
@@ -94,27 +93,25 @@ function broadcastBeacon(payload) {
 }
 
 // Define location beacons with payloads
-notify.blink("blue", "long");
 print("  - location..."); 
 let locationPrefix = [0x0A, 0x04];
 let locationBeacons = [
-	{ id: 0x00, name: "Marketplace 1", payload: createPayload(locationPrefix, [0x01, 0x02, 0xA6, 0x01]) },
-	{ id: 0x01, name: "Marketplace 2", payload: createPayload(locationPrefix, [0x01, 0x0C, 0xA6, 0x01]) },
+    { id: 0x00, name: "Marketplace 1", payload: createPayload(locationPrefix, [0x01, 0x02, 0xA6, 0x01]) },
+    { id: 0x01, name: "Marketplace 2", payload: createPayload(locationPrefix, [0x01, 0x0C, 0xA6, 0x01]) },
 	{ id: 0x02, name: "Marketplace (WDW)", payload: createPayload(locationPrefix, [0x06, 0x18, 0xBA, 0x01]) },    
 	{ id: 0x03, name: "Droid Depot (Behind)", payload: createPayload(locationPrefix, [0x02, 0x02, 0xA6, 0x01]) },
-	{ id: 0x04, name: "Droid Depot (DL)", payload: createPayload(locationPrefix, [0x03, 0x18, 0xBA, 0x01]) },    
+    { id: 0x04, name: "Droid Depot (DL)", payload: createPayload(locationPrefix, [0x03, 0x18, 0xBA, 0x01]) },    
 	{ id: 0x05, name: "Resistance", payload: createPayload(locationPrefix, [0x03, 0x02, 0xA6, 0x01]) },
 	{ id: 0x06, name: "First Order 1", payload: createPayload(locationPrefix, [0x07, 0x02, 0xA6, 0x01]) },
 	{ id: 0x07, name: "First Order 2", payload: createPayload(locationPrefix, [0x07, 0x0C, 0xA6, 0x01]) },    
 	{ id: 0x08, name: "Dok-Ondar's", payload: createPayload(locationPrefix, [0x06, 0x0C, 0xA6, 0x01]) },
-	{ id: 0x09, name: "Dok-Ondar's (WDW)", payload: createPayload(locationPrefix, [0x06, 0x02, 0xA6, 0x01]) },	
+    { id: 0x09, name: "Dok-Ondar's (WDW)", payload: createPayload(locationPrefix, [0x06, 0x02, 0xA6, 0x01]) },	
 	{ id: 0x0A, name: "Oga's Detector", payload: createPayload(locationPrefix, [0x05, 0x02, 0xA6, 0x01]) },	
-	{ id: 0x0B, name: "Oga's Entrance", payload: createPayload(locationPrefix, [0x05, 0x0C, 0xA6, 0x01]) },
+    { id: 0x0B, name: "Oga's Entrance", payload: createPayload(locationPrefix, [0x05, 0x0C, 0xA6, 0x01]) },
 	{ id: 0x0C, name: "Somewhere", payload: createPayload(locationPrefix, [0x04, 0x02, 0xA6, 0x01]) }	
 ];
 
 // Define droid beacons with payloads
-notify.blink("blue", "long");
 print("  - droids...");
 let droidPrefix = [0x03, 0x04, 0x44, 0x81];
 let droidBeacons = [
@@ -127,7 +124,6 @@ let droidBeacons = [
 ];
 
 // Define personality chip beacons with payloads
-notify.blink("blue", "long");
 print("  - personality chips...");
 let personalityChipBeacons = [
 	{ id: 0x00, name: "Blue (R5-D4)", payload: createPayload(droidPrefix, [0x8A, 0x03]) },
@@ -141,9 +137,9 @@ let personalityChipBeacons = [
 	{ id: 0x08, name: "Navy (RG-G1)", payload: createPayload(droidPrefix, [0x82, 0x0D]) },
 ];
 
-notify.blink("cyan", "long");
 print("Starting...");
-delay(1200);
+notify.blink("magenta", "long");
+delay(1000);
 clearScreen();
 
 function mainMenu() {
