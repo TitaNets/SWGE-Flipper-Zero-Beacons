@@ -4,5 +4,5 @@ This application allows the emulation of beacons emitted by the droids from Droi
 
 The application was designed for Flipper Zero devices capable of running JavaScript code and supporting the loading of the blebeacon module. The application was successfully tested with the Momentum firmware.
 
-The SWGE folder must be uploaded to the apps\Scripts directory.
-To execute it, navigate from the Flipper Zero's screen to Apps and then to the Scripts option.
+The SWGE folder must be uploaded to the SD Card/apps/Scripts directory.
+To execute the script, navigate from the Flipper Zero's screen to Apps and then go to the Scripts/SWGE folder and open the SWGE Beacons.js file.
