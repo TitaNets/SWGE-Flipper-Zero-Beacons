@@ -75,9 +75,17 @@ function uint8ArrayToHexString(array, ixStart) {
         let hex = to_hex_string(value);
 
         // Ensure the hex string is two characters long
-        hexString += hex.length === 1 ? '0' + hex : hex;
+        hex = hex.length === 1 ? '0' + hex : hex;
+
+        // Append the hex value and a '-' character
+        hexString += hex;
+        if (i < array.length - 1) {
+            hexString += '-';
+        }
     }
-    return to_upper_case(hexString);
+	
+	hexString = to_upper_case(hexString);	
+    return hexString;
 }
 
 // Function to stop any active beacon
@@ -125,6 +133,7 @@ let droidBeacons = [
 	{ id: 0x02, name: "C1-10P", payload: createPayload(droidPrefix, [0x8A, 0x0B]) },
 	{ id: 0x03, name: "D-O", payload: createPayload(droidPrefix, [0x8A, 0x0C]) },
 	{ id: 0x04, name: "BD-1", payload: createPayload(droidPrefix, [0x8A, 0x0E]) },	
+	{ id: 0x04, name: "A-LT", payload: createPayload(droidPrefix, [0x82, 0x0F]) },	
 	{ id: 0x05, name: "Drum Kit", payload: createPayload(droidPrefix, [0x82, 0x10]) },
 ];
 
@@ -187,7 +196,7 @@ function showSubmenu(beacons) {
 
             let dialogParams = {
                 header: "Broadcasting\n" + selectedBeacon.name,
-                text: "0x" + uint8ArrayToHexString(selectedBeacon.payload, 5) + "\nPress OK to stop.",
+                text: uint8ArrayToHexString(selectedBeacon.payload, 5) + "\nPress OK to stop.",
                 button_center: "Stop"
             };
             dialog.custom(dialogParams);
