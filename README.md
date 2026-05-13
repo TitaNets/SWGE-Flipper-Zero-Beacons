@@ -1,3 +1,8 @@
+⚠️ This project is no longer maintained.
+
+ This repository has been abandoned and will not receive updates, bug fixes, or support.
+ Feel free to fork it if you want to continue development.
+
 ## Galaxy's Edge Beacon Emulator for Flipper Zero
 
 This application allows the emulation of beacons emitted by the droids from Droid Depot, including any of their personality chips and those located in the Galaxy's Edge theme park.
